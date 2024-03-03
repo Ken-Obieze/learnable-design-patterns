@@ -70,9 +70,9 @@ telephone.addObserver(dialingObserver);
 telephone.addPhoneNumber("1234567890");
 telephone.addPhoneNumber("2345678901");
 
-// Dialing a phone number
+// Dialing a phone number,one success one unsuccessful
 telephone.dialPhoneNumber("1234567890");
-telephone.dialPhoneNumber("2347023232"); // This should not dial and show "Phone number not found."
+telephone.dialPhoneNumber("2347023232");
 
 // Adding more phone numbers
 telephone.addPhoneNumber("3456789012");
@@ -87,15 +87,15 @@ telephone.dialPhoneNumber("3456789012");
 telephone.dialPhoneNumber("1234567890");
 
 // Dialing a phone number that was removed
-telephone.dialPhoneNumber("2345678901"); // Should show "Phone number not found."
+telephone.dialPhoneNumber("2345678901");
 
 // Removing a phone number that doesn't exist
-telephone.removePhoneNumber("9876543210"); // Should not affect the phone numbers list
+telephone.removePhoneNumber("9876543210");
 
 // Dialing with no observers added
 telephone.removeObserver(phoneNumberObserver);
 telephone.removeObserver(dialingObserver);
-telephone.dialPhoneNumber("3456789012"); // Should not print anything
+telephone.dialPhoneNumber("3456789012");
 
 // Adding observers again
 telephone.addObserver(phoneNumberObserver);
@@ -108,17 +108,18 @@ telephone.removePhoneNumber("4567890123");
 telephone.removePhoneNumber("5678901234");
 
 // Trying to dial when no phone numbers are added
-telephone.dialPhoneNumber("1234567890"); // Should show "Phone number not found."
+telephone.dialPhoneNumber("1234567890");
 
 // Adding same phone number multiple times
 telephone.addPhoneNumber("1234567890");
 telephone.addPhoneNumber("1234567890");
 
 // Dialing a phone number added multiple times
-telephone.dialPhoneNumber("1234567890"); // Should notify observers once
+telephone.dialPhoneNumber("1234567890"); 
 
 // Removing a phone number added multiple times
-telephone.removePhoneNumber("1234567890"); // Should remove only one instance
+telephone.removePhoneNumber("1234567890"); 
+// Should remove only one instance
 
 // Adding and dialing a new phone number
 telephone.addPhoneNumber("6789012345");
@@ -134,4 +135,4 @@ telephone.dialPhoneNumber("6789012345");
 telephone.removeObserver(dialingObserver);
 
 // Dialing a phone number with all observers removed
-telephone.dialPhoneNumber("6789012345"); // Should not print anything
+telephone.dialPhoneNumber("6789012345"); 
